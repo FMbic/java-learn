@@ -16,23 +16,24 @@ Calculates attendance percentage
 Finds the longest streak of present days
          */
 
-
         double randNum = Math.random();
 
-        int loopCount = 1;
+        int loopIterations = 1;
         int [] attendance = new int[5];
 
-        while (loopCount < 6) {
+        String [] students = {"Krew Terrell", "Avah Humphrey", "Marley Wilkins", "Murphy Galindo", "Michael Brown"};
+
+        while (loopIterations < 6) {
             for (int i = 0; i < 5; i++)
             {
                 attendance[i] = (int) Math.round(randNum * Math.random());
             }
-            System.out.println("Array # " + loopCount);
+            System.out.println("Day " + loopIterations + " attendance");
             for (int i = 0; i< attendance.length; i++)
             {
-                System.out.println(attendance[i]);
+                System.out.println(attendance[i] + " " + students[i]);
             }
-            loopCount++;
+            loopIterations++;
         }
 
     }
