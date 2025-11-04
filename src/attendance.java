@@ -26,6 +26,7 @@ Finds the longest streak of present days
         while (loopIterations < 6) {
             for (int i = 0; i < 5; i++)
             {
+                ///  Fix so the numbers would be randomized in a loop each time you run it
                 attendance[i] = (int) Math.round(randNum * Math.random());
             }
             System.out.println("Day " + loopIterations + " attendance");
