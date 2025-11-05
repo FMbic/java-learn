@@ -19,7 +19,8 @@ public class attendance
         int loopIterations = 1;
         int [] attendance = new int[5];
         int [] totalDaysPresent = new int [attendance.length];
-        int []longestStreak = new int [attendance.length];
+        int [] streak = new int [attendance.length];
+        int [] maxStreak = new int[attendance.length];
 
 
         String [] students = {"Krew Terrell", "Avah Humphrey", "Marley Wilkins", "Murphy Galindo", "Michael Brown"};
@@ -45,9 +46,17 @@ public class attendance
                     totalDaysPresent[j] += 0;
                 }
 
-                if (totalDaysPresent[j] != 0)
+                if (attendance[j] != 0)
                 {
-
+                    streak[j]++;
+                    if (streak[j] == 1)
+                    {
+                        maxStreak[j]++;
+                    }
+                }
+                else
+                {
+                    streak[j] = 0;
                 }
             }
 
@@ -59,7 +68,8 @@ public class attendance
         for (int k = 0; k < totalDaysPresent.length;k++)
         {
             System.out.println("Student name " + students[k]+ "total present days "+totalDaysPresent[k]+
-                    " percentage of days present "+(int)((double)totalDaysPresent[k]/attendance.length*100) +" "  );
+                    " percentage of days present "+(int)((double)totalDaysPresent[k]/attendance.length*100)
+                    +" Longest streak "+maxStreak[k]);
         }
 
 
