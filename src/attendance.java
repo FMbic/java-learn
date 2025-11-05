@@ -22,7 +22,7 @@ public class attendance
         ///  testing variables for calculation
         int [] totalDaysPresent = new int [attendance.length];
         int longestAttendance = 0;
-        double attendancePercentage = 0;
+        double attendancePercentage = attendance.length;
 
         ///  Names
         String [] students = {"Krew Terrell", "Avah Humphrey", "Marley Wilkins", "Murphy Galindo", "Michael Brown"};
@@ -50,12 +50,7 @@ public class attendance
                     totalDaysPresent[j] += 0;
                 }
                 longestAttendance =  totalDaysPresent[j];
-                attendancePercentage = ((double)longestAttendance/ attendance.length) * 100;
-
-                System.out.println("attendance as of today "+attendance[j] +
-                        " percent "+(int)attendancePercentage+ " %");
-
-
+                attendancePercentage = ((double)longestAttendance / attendance.length) * 100;
 
             }
 
