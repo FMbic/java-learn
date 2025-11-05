@@ -10,43 +10,52 @@ public class attendance
     {
         /*
         Create a program that:
-Stores attendance for 5 days (1 = present, 0 = absent)
-Calculates total days present
-Calculates attendance percentage
-Finds the longest streak of present days
+            Stores attendance for 5 days (1 = present, 0 = absent)
+            Calculates total days present
+            Calculates attendance percentage
+            Finds the longest streak of present days
          */
-        /// initial vars so that everything would work
 
-        double randNum = Math.random();
         int loopIterations = 1;
         int [] attendance = new int[5];
 
         ///  testing variables for calculation
-        int daysPresent = 0;
+        int [] daysPresent = new int [attendance.length];
         int longestAttendance = 0;
         int attendancePercentage = 0;
 
         ///  Names
         String [] students = {"Krew Terrell", "Avah Humphrey", "Marley Wilkins", "Murphy Galindo", "Michael Brown"};
 
-        /// loop while to iterate so that would be 5 days of attendance
         while (loopIterations < 6) {
+            double randNum = Math.random();
 
-            /// nested loop for generating a random then adding it to an array
+            /// nested loop for generating a random number then adding it to an array
             for (int i = 0; i < 5; i++)
             {
-                ///  Fix so the numbers would be randomized in a loop each time you run it
-
                 attendance[i] = (int) Math.round(randNum * Math.random());
             }
             System.out.println("Day " + loopIterations + " attendance");
 
+
             ///  nested loop for going through 2 arrays and printing out the result(random number and a student name)
-            for (int i = 0; i< attendance.length; i++)
+            for (int j = 0; j< attendance.length; j++)
             {
-                System.out.println(attendance[i] + " " + students[i]);
+                /// getting the numbers of days that the student was present
+                if (attendance[j] == 1)
+                {
+                    daysPresent[j] = daysPresent[j] + 1;
+                } else
+                {
+                    daysPresent[j] += 0;
+                }
+                System.out.println("Total present days "+daysPresent[j]+" attendance as of today "+attendance[j] + " " + students[j]);
+
+
             }
-            ///  loop for attendance
+
+
+
 
             loopIterations++;
 
