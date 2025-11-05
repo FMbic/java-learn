@@ -20,9 +20,9 @@ public class attendance
         int [] attendance = new int[5];
 
         ///  testing variables for calculation
-        int [] daysPresent = new int [attendance.length];
+        int [] totalDaysPresent = new int [attendance.length];
         int longestAttendance = 0;
-        int attendancePercentage = 0;
+        double attendancePercentage = 0;
 
         ///  Names
         String [] students = {"Krew Terrell", "Avah Humphrey", "Marley Wilkins", "Murphy Galindo", "Michael Brown"};
@@ -44,28 +44,32 @@ public class attendance
                 /// getting the numbers of days that the student was present
                 if (attendance[j] == 1)
                 {
-                    daysPresent[j] = daysPresent[j] + 1;
+                    totalDaysPresent[j] = totalDaysPresent[j] + 1;
                 } else
                 {
-                    daysPresent[j] += 0;
+                    totalDaysPresent[j] += 0;
                 }
-                System.out.println("Total present days "+daysPresent[j]+" attendance as of today "+attendance[j] + " " + students[j]);
+                longestAttendance =  totalDaysPresent[j];
+                attendancePercentage = ((double)longestAttendance/ attendance.length) * 100;
+
+                System.out.println("attendance as of today "+attendance[j] +
+                        " percent "+(int)attendancePercentage+ " %");
+
 
 
             }
 
 
-
-
             loopIterations++;
 
-            ///  do the if else statments to do the rest that way you won't need to store the data
-            ///  you will see the results quicker
-
-
-
-
         }
+
+        for (int k = 0; k < totalDaysPresent.length;k++)
+        {
+            System.out.println("Student name " + students[k]+ "total present days "+totalDaysPresent[k]+
+                    " attendance percentage "+(int)attendancePercentage+ " %" );
+        }
+
 
     }
 }
