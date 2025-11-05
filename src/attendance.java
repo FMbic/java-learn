@@ -18,13 +18,10 @@ public class attendance
 
         int loopIterations = 1;
         int [] attendance = new int[5];
-
-        ///  testing variables for calculation
         int [] totalDaysPresent = new int [attendance.length];
-        int longestAttendance = 0;
-        double attendancePercentage = attendance.length;
+        int []longestStreak = new int [attendance.length];
 
-        ///  Names
+
         String [] students = {"Krew Terrell", "Avah Humphrey", "Marley Wilkins", "Murphy Galindo", "Michael Brown"};
 
         while (loopIterations < 6) {
@@ -35,8 +32,6 @@ public class attendance
             {
                 attendance[i] = (int) Math.round(randNum * Math.random());
             }
-            System.out.println("Day " + loopIterations + " attendance");
-
 
             ///  nested loop for going through 2 arrays and printing out the result(random number and a student name)
             for (int j = 0; j< attendance.length; j++)
@@ -49,9 +44,11 @@ public class attendance
                 {
                     totalDaysPresent[j] += 0;
                 }
-                longestAttendance =  totalDaysPresent[j];
-                attendancePercentage = ((double)longestAttendance / attendance.length) * 100;
 
+                if (totalDaysPresent[j] != 0)
+                {
+
+                }
             }
 
 
@@ -62,7 +59,7 @@ public class attendance
         for (int k = 0; k < totalDaysPresent.length;k++)
         {
             System.out.println("Student name " + students[k]+ "total present days "+totalDaysPresent[k]+
-                    " attendance percentage "+(int)attendancePercentage+ " %" );
+                    " percentage of days present "+(int)((double)totalDaysPresent[k]/attendance.length*100) +" "  );
         }
 
 
