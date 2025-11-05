@@ -35,6 +35,9 @@ Finds the longest streak of present days
                 System.out.println(attendance[i] + " " + students[i]);
             }
             loopIterations++;
+
+            ///  do the if else statments to do the rest that way you won't need to store the data
+            ///  you will see the results quicker
         }
 
     }
