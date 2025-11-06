@@ -67,8 +67,8 @@ public class attendance
 
         for (int k = 0; k < totalDaysPresent.length;k++)
         {
-            System.out.println("Student name " + students[k]+ "total present days "+totalDaysPresent[k]+
-                    " percentage of days present "+(int)((double)totalDaysPresent[k]/attendance.length*100)
+            System.out.println("Student name " + students[k]+ " total present days "+totalDaysPresent[k]+
+                    " percentage of days present "+(int)((double)totalDaysPresent[k]/attendance.length*100) +" % "
                     +" Longest streak "+maxStreak[k]);
         }
 
