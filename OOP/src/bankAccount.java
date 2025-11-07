@@ -13,20 +13,35 @@ public class bankAccount
 
     public  double deposit(double amount)
     {
-        return balance + amount;
+        if (amount > 0)
+        {
+            balance = balance + amount;
+        }
+        else
+        {
+            System.out.println("Your amount is too low");
+        }
+
+        return balance;
     }
 
     public double withdraw (double amount)
     {
-        return balance - amount;
+        if (balance <= 0 && amount > balance)
+        {
+            System.out.println("Insufficient funds");
+        }
+        else
+        {
+            balance = balance - amount;
+        }
+
+        return balance;
     }
 
     public double getBalance()
     {
         return balance;
     }
-
-
-
 
 }
