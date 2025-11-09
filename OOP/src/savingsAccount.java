@@ -20,7 +20,12 @@ public class savingsAccount extends bankAccount
     }
 
     @Override
-    public double withdrawals(){
+    public double withdraw(double amount)
+    {
+        double withdrawAmount = super.withdraw(amount);
+        double withdrawFee = amount * 0.01;
 
+        return withdrawAmount - withdrawFee;
     }
+
 }
