@@ -1,9 +1,8 @@
-import java.lang.classfile.constantpool.NameAndTypeEntry;
-
-public class bankAccount
+public class bankAccount extends Account
 {
     private int accountNumber;
     private double balance;
+
 
     public bankAccount(int accountNumber, double balance)
     {
@@ -11,6 +10,7 @@ public class bankAccount
         this.balance = balance;
     }
 
+    @Override
     public  double deposit(double amount)
     {
         if (amount > 0)
@@ -44,4 +44,21 @@ public class bankAccount
         return balance;
     }
 
+    @Override
+    public int getAccountNumber(int accountNumber)
+    {
+        return accountNumber;
+    }
+
+    @Override
+    public String accountHolderName()
+    {
+        return "Name";
+    }
+
+    @Override
+    public String getAccountType()
+    {
+        return "Type";
+    }
 }

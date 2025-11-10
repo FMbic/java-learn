@@ -5,4 +5,5 @@ abstract class Account
     public abstract double getBalance();
     public abstract int getAccountNumber(int accountNumber);
     public abstract String getAccountType();
+    public abstract String accountHolderName();
 }
