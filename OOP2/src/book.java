@@ -4,29 +4,27 @@ public class book
     private String author;
     private int isbn;
     private boolean isBorrowed;
-    private int castIsBorrowed = isBorrowed ? 1:0;
 
-    public void borrowBook()
+    public book(String bookTitle, String author, int isbn, boolean isBorrowed)
     {
-        if (castIsBorrowed == 1)
-        {
-            isBorrowed = true;
-            System.out.println("Book has been borrowed by"+ isbn+ " "+ bookTitle+ " "+ author );
-
-        } else {
-            if (castIsBorrowed == 0)
-            {
-                castIsBorrowed =1;
-
-            }
-        }
-
-
+        this.author = author;
+        this.bookTitle = bookTitle;
+        this.isbn = isbn;
+        this.isBorrowed = isBorrowed;
     }
 
-    public void returnBook()
+    public boolean borrowBook()
     {
+        return isBorrowed;
+    }
 
+    public boolean returnBook()
+    {
+        if (isBorrowed)
+        {
+            isBorrowed = false;
+        }
+        return isBorrowed;
     }
 
     public  void getBookInfo()
