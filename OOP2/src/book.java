@@ -8,14 +8,17 @@ public class book
 
     public void borrowBook()
     {
-
         if (castIsBorrowed == 1)
         {
             isBorrowed = true;
-        }
-        else
-        {
-            isBorrowed = false;
+            System.out.println("Book has been borrowed by"+ isbn+ " "+ bookTitle+ " "+ author );
+
+        } else {
+            if (castIsBorrowed == 0)
+            {
+                castIsBorrowed =1;
+
+            }
         }
 
 
