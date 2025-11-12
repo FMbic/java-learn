@@ -15,15 +15,21 @@ public class book
 
     public boolean borrowBook()
     {
+        if (!isBorrowed)
+        {
+            isBorrowed = true;
+        }
+
         return isBorrowed;
     }
 
     public boolean returnBook()
     {
-        if (isBorrowed)
+        if (isBorrowed == true)
         {
             isBorrowed = false;
         }
+
         return isBorrowed;
     }
 
