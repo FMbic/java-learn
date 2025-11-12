@@ -8,4 +8,16 @@ public class studentMember extends libraryMember
         }
     }
 
+
+    public void calculateFine(int daysOverdue)
+    {
+        int fineAmount = 0;
+
+        if (daysOverdue > 7)
+        {
+            fineAmount = (daysOverdue-7)*1;
+        }
+
+    }
 }
+
