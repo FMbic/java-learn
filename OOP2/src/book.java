@@ -4,10 +4,20 @@ public class book
     private String author;
     private int isbn;
     private boolean isBorrowed;
+    private int castIsBorrowed = isBorrowed ? 1:0;
 
     public void borrowBook()
     {
-        isBorrowed = false;
+
+        if (castIsBorrowed == 1)
+        {
+            isBorrowed = true;
+        }
+        else
+        {
+            isBorrowed = false;
+        }
+
 
     }
 
