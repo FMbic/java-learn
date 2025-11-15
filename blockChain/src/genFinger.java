@@ -1,5 +1,6 @@
 import java.security.MessageDigest;
 
+
 public class genFinger
 {
     public static String useSHA256(String input)
