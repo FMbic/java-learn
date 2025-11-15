@@ -14,4 +14,10 @@ public class block
         this.timeStamp = new Date().getTime();
     }
 
+    public String calculateHash()
+    {
+        String calculatedHash = genFinger.useSHA256(previousHash+Long.toString(timeStamp)+date);
+        return calculatedHash;
+    }
+
 }
