@@ -26,13 +26,15 @@ public class coinFlip
 
     public String getStats()
     {
-        return "";
+        int heads1 = this.heads;
+        int tails1 = this.tails;
+        return "Heads "+heads1+" Tails "+tails1;
     }
 
     public static void main(String[]args)
     {
         coinFlip flp = new coinFlip();
-        System.out.println(flp.flip());
-
+        flp.flip();
+        System.out.println(flp.getStats());
     }
 }
