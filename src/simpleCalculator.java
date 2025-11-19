@@ -16,15 +16,15 @@ public class simpleCalculator
         System.out.print("Result of the devision ");
         int devision = 0;
 
-        try
-        {
-            devision = num1 / num2;
-        }
-        catch (ArithmeticException ae)
-        {
-            System.out.println("\nYou can't divide "+ ae.getMessage());
+            try
+            {
+                devision = num1 / num2;
+            }
+            catch (ArithmeticException ae)
+            {
+                System.out.println("\nYou can't divide "+ ae.getMessage());
 
-        }
+            }
 
         return devision;
     }
