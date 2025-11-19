@@ -1,13 +1,14 @@
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class studentCollection
 {
 
     public void studentsArrayList()
     {
-        List <String> students = new ArrayList<>();
+        List <String> students = new ArrayList<>() {};
         students.add("Dima");
         students.add("Daniel");
         students.add(1,"Cherry");
@@ -31,6 +32,18 @@ public class studentCollection
         {
             System.out.println(grades.getKey() + " - " + grades.getValue());
         }
+
+
+        avg = (avg * avg) /sg.size() ;
+        System.out.println("Avg grade: "+avg);
+
+
+    }
+
+    public void avgGrade()
+    {
+        studentCollection sc = new studentCollection();
+
     }
 
 
