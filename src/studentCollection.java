@@ -23,10 +23,21 @@ public class studentCollection
     public void studentGrade()
     {
         HashMap<String, Integer> sg = new HashMap<>();
-
+        int above = 4;
         sg.put("Dima", 5);
         sg.put("Daniel", 4);
         sg.put("Cherry", 3);
+
+        /*
+        for(HashMap.Entry<String, Integer> kick : sg.entrySet())
+        {
+            if (kick.getValue() < above)
+            {
+
+            }
+        }
+
+         */
 
         for (HashMap.Entry<String, Integer> grades : sg.entrySet())
         {
@@ -42,7 +53,7 @@ public class studentCollection
         int low = sg.values().stream().min(Integer::compareTo).get();
         System.out.println("Low grade: "+low);
 
-        int above = 4;
+
 
         for(HashMap.Entry<String, Integer> grade : sg.entrySet())
         {
@@ -51,6 +62,8 @@ public class studentCollection
                 System.out.println("Students above 4: "+grade.getKey() + " - " + grade.getValue());
             }
         }
+
+
 
     }
 
