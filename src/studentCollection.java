@@ -33,20 +33,26 @@ public class studentCollection
             System.out.println(grades.getKey() + " - " + grades.getValue());
         }
 
-
-        avg = (avg * avg) /sg.size() ;
+        int avg = (sg.values().stream().mapToInt(Integer::intValue).sum()) / sg.size();
         System.out.println("Avg grade: "+avg);
 
+        int high = sg.values().stream().max(Integer::compareTo).get();
+        System.out.println("Highest grade: "+high);
+
+        int low = sg.values().stream().min(Integer::compareTo).get();
+        System.out.println("Low grade: "+low);
+
+        int above = 4;
+
+        for(HashMap.Entry<String, Integer> grade : sg.entrySet())
+        {
+            if (grade.getValue() > above)
+            {
+                System.out.println("Students above 4: "+grade.getKey() + " - " + grade.getValue());
+            }
+        }
 
     }
-
-    public void avgGrade()
-    {
-        studentCollection sc = new studentCollection();
-
-    }
-
-
 
 
     public static void main(String[] args)
