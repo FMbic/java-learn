@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class studentCollection
 {
@@ -29,11 +26,11 @@ public class studentCollection
         sg.put("Cherry", 3);
 
 
-        for(HashMap.Entry<String, Integer> kick : sg.entrySet())
+        for(Iterator<Map.Entry<String, Integer>> it2 = sg.entrySet().iterator(); it2.hasNext();)
         {
-            if (kick.getValue() < above)
+            if (it2.next().getValue() < above)
             {
-                sg.remove(kick.getValue());
+                it2.remove();
             }
         }
 
