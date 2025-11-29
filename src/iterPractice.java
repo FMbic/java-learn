@@ -1,5 +1,5 @@
-import java.util.ArrayList;
 import java.util.List;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 
@@ -14,11 +14,14 @@ import java.util.Iterator;
 
         Iterator<String> it = books.iterator();
 
-        while(it.hasNext())
+        while (it.hasNext())
         {
-            System.out.println(it.next());
+            String book = it.next();
+            if(book.equals("The Hobbit"))
+            {
+                it.remove();
+            }
+            System.out.println(books);
         }
 
-        //System.out.println(books);
     }
-
