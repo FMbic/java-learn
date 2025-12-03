@@ -61,7 +61,7 @@ public class Task1 {
         int W = (S + sqrt)/2;
         int H = (S - sqrt)/2;
 
-        System.out.println(W+ " " + " "+H);
+        writer.write(W+ " " + " "+H);
         //int R = 2W + 2H - 4;
         //int B = (W - 2)(H - 2);
 
