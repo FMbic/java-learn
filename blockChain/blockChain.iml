@@ -7,6 +7,5 @@
     </content>
     <orderEntry type="jdk" jdkName="25" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="fatboyindustrial.gson.javatime.serialisers" level="project" />
   </component>
 </module>
