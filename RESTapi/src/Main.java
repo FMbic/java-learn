@@ -10,7 +10,11 @@ public static void main(String[] args)
 {
     HttpClient client = HttpClient.newHttpClient();
     http hp  = new http();
+    link lk = new link();
 
+    hp.getMethod();
+
+    System.out.println();
 
 }
 
