@@ -5,9 +5,9 @@ and if there is a certan word then add a lable to a put request
 
 public static void main(String[] args)
 {
-    methods get  = new methods();
+    methods methods  = new methods();
 
-    get.getMethod();
+    methods.getMethod();
 
 
 

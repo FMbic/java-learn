@@ -21,11 +21,12 @@ public class methods extends link{
         try
         {
             HttpResponse<String> res = httpClientGet.send(httpGetReq, HttpResponse.BodyHandlers.ofString());
+            System.out.println(res.statusCode());
             System.out.println(res.body());
 
         } catch (IOException | InterruptedException e)
         {
-            System.out.println("Reason why it failed "+e);
+            System.out.println("Why GET failed "+e);
         }
 
     }
@@ -41,6 +42,16 @@ public class methods extends link{
                 .build();
 
 
+            try
+            {
+            HttpResponse <String> response = httpClientPost.send(httpPostReq, HttpResponse.BodyHandlers.ofString());
+            System.out.println(response.statusCode());
+            System.out.println(response.body());
+            }
+            catch (IOException | InterruptedException e)
+            {
+                System.out.println("Why POST failed "+e);
+            }
     }
 
 }
