@@ -36,7 +36,7 @@ public class methods extends link{
 
         HttpClient httpClientPost = HttpClient.newBuilder().connectTimeout(Duration.ofSeconds(10)).build();
         HttpRequest httpPostReq = HttpRequest.newBuilder(URI.create(url))
-              //  .POST()
+                .POST(HttpRequest.BodyPublishers.noBody())
                 .header("Content-Type", "application/json")
                 .build();
 
