@@ -8,12 +8,11 @@ and if there is a certan word then add a lable to a put request
 
 public static void main(String[] args)
 {
-    HttpClient client = HttpClient.newHttpClient();
     http hp  = new http();
-    link lk = new link();
+
     hp.getMethod();
 
-    System.out.println();
+
 
 }
 

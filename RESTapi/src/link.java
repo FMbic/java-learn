@@ -1,4 +1,5 @@
-public class link
+abstract class link
 {
-    String getCamera = "https://jsonplaceholder.typicode.com/users";
+    String url;
+    //String getCamera = "https://jsonplaceholder.typicode.com/users/";
 }

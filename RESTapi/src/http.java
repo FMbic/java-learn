@@ -12,12 +12,13 @@ import java.time.Duration;
 
 import com.google.gson.Gson;
 
-public class http {
+public class http extends link{
 
     public void getMethod() {
 
-        link link = new link();
 
+
+        link link = new link();
 
         HttpClient httpClient = HttpClient.newBuilder().build();
         HttpRequest httpReq = HttpRequest.newBuilder(URI.create(link.getCamera)).GET().build();
@@ -32,7 +33,13 @@ public class http {
             System.out.println("Reason why it failed "+e);
         }
 
+    }
+    public void postMethod() {
+        link link = new link();
+
+        HttpClient httpClient = HttpClient.newBuilder().build();
 
 
     }
+
 }
