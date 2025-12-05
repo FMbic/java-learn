@@ -16,12 +16,10 @@ public class http extends link{
 
     public void getMethod() {
 
-
-
-        link link = new link();
+        this.url = "https://jsonplaceholder.typicode.com/users/";
 
         HttpClient httpClient = HttpClient.newBuilder().build();
-        HttpRequest httpReq = HttpRequest.newBuilder(URI.create(link.getCamera)).GET().build();
+        HttpRequest httpReq = HttpRequest.newBuilder(URI.create(url)).GET().build();
 
         try
         {
@@ -35,7 +33,8 @@ public class http extends link{
 
     }
     public void postMethod() {
-        link link = new link();
+        //link link = new link();
+
 
         HttpClient httpClient = HttpClient.newBuilder().build();
 
