@@ -31,7 +31,7 @@ public class methods extends link{
 
             //String valueGet = mapper.readValue(res.body(), String.class);
             //System.out.println(mapper.readValues(res.body(), String.class));
-            System.out.println();
+            System.out.println(res.body());
 
         } catch (IOException | InterruptedException e)
         {
