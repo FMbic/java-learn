@@ -9,5 +9,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="gson-2.13.2" level="project" />
     <orderEntry type="library" name="gson-2.13.3" level="project" />
+    <orderEntry type="library" name="autonomouslogic.jacksonobjectstream.jackson.object.stream" level="project" />
   </component>
 </module>

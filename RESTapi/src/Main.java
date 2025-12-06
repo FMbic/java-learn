@@ -7,8 +7,8 @@ public static void main(String[] args)
 {
     methods methods  = new methods();
 
-    //methods.getAllMethod();
-    methods.postMethod();
+    methods.getAllMethod();
+    //methods.postMethod();
 
 
 }

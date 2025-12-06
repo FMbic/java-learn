@@ -9,7 +9,7 @@ public class methods extends link{
 
     public void getAllMethod() {
 
-        this.url = "https://jsonplaceholder.typicode.com/users/";
+        this.url = "https://jsonplaceholder.typicode.com/todos";
 
         HttpClient httpClientGet = HttpClient.newBuilder().connectTimeout(Duration.ofSeconds(10)).build();
         HttpRequest httpGetReq = HttpRequest
@@ -33,7 +33,7 @@ public class methods extends link{
 
     public void postMethod() {
 
-        this.url = "https://jsonplaceholder.typicode.com/users/";
+        this.url = "https://jsonplaceholder.typicode.com/todos";
 
         HttpClient httpClientPost = HttpClient.newBuilder().connectTimeout(Duration.ofSeconds(10)).build();
         HttpRequest httpPostReq = HttpRequest.newBuilder(URI.create(url))
@@ -55,7 +55,7 @@ public class methods extends link{
 
     public void putMethod()
     {
-        this.url = "https://jsonplaceholder.typicode.com/users/";
+        this.url = "https://jsonplaceholder.typicode.com/todos/";
         HttpClient httpClientPut = HttpClient.newBuilder().connectTimeout(Duration.ofSeconds(10)).build();
         HttpRequest httpPutReq = HttpRequest.newBuilder(URI.create(url))
                 .PUT(HttpRequest.BodyPublishers.noBody())
@@ -77,7 +77,7 @@ public class methods extends link{
 
     public void deleteMethod()
     {
-        this.url = "https://jsonplaceholder.typicode.com/users/";
+        this.url = "https://jsonplaceholder.typicode.com/todos/";
         HttpClient httpClientDelete = HttpClient.newBuilder().connectTimeout(Duration.ofSeconds(10)).build();
         HttpRequest httpDelReq = HttpRequest.newBuilder(URI.create(url))
                 //.DELETE(HttpRequest.BodyPublishers.noBody())
