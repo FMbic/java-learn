@@ -7,7 +7,7 @@ public static void main(String[] args)
 {
     methods methods  = new methods();
 
-    //methods.getMethod();
+    //methods.getAllMethod();
     methods.postMethod();
 
 

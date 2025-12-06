@@ -7,7 +7,7 @@ import java.time.Duration;
 
 public class methods extends link{
 
-    public void getMethod() {
+    public void getAllMethod() {
 
         this.url = "https://jsonplaceholder.typicode.com/users/";
 
