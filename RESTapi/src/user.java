@@ -6,14 +6,14 @@ public class user
     private boolean completed = false;
 
     public Integer getUserId() {return userId;}
-    public void setUserId(Integer userId) {}
+    public void setUserId(Integer userId) { this.userId = userId;}
 
     public Integer getId() {return  id;}
-    public void setId(Integer id) {}
+    public void setId(Integer id) { this.id = id;}
 
     public String getTitle() {return title;}
-    public void setTtile(String title) {}
+    public void setTtile(String title) { this.title = title;}
 
     public boolean isCompleted(){return completed;}
-    public void setCompleated(boolean compleated){}
+    public void setCompleated(boolean compleated){ this.completed = compleated;}
 }

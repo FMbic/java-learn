@@ -29,7 +29,7 @@ public class methods extends link{
         {
             HttpResponse<String> res = httpClientGet.send(httpGetReq, HttpResponse.BodyHandlers.ofString());
 
-            user valueGet = mapper.readValue(res.body(), user.class);
+            dataGettingBack valueGet = mapper.readValue(res.body(), dataGettingBack.class);
             //System.out.println(mapper.readValues(res.body(), String.class));
             System.out.println(valueGet);
 
