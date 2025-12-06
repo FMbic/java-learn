@@ -1,4 +1,9 @@
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.gson.Gson;
+
 import java.io.IOException;
+import java.lang.reflect.Method;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
@@ -6,6 +11,8 @@ import java.net.http.HttpResponse;
 import java.time.Duration;
 
 public class methods extends link{
+
+    public final ObjectMapper mapper = new ObjectMapper();
 
     public void getAllMethod() {
 
@@ -21,8 +28,10 @@ public class methods extends link{
         try
         {
             HttpResponse<String> res = httpClientGet.send(httpGetReq, HttpResponse.BodyHandlers.ofString());
-            System.out.println(res.statusCode());
-            System.out.println(res.body());
+
+            //String valueGet = mapper.readValue(res.body(), String.class);
+            //System.out.println(mapper.readValues(res.body(), String.class));
+            System.out.println();
 
         } catch (IOException | InterruptedException e)
         {
