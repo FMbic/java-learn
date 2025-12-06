@@ -62,6 +62,16 @@ public class methods extends link{
                 .header("Content-Type", "application/json")
                 .build();
 
+        try
+        {
+            HttpResponse <String> response = httpClientPut.send(httpPutReq, HttpResponse.BodyHandlers.ofString());
+            System.out.println(response.statusCode());
+            System.out.println(response.body());
+        }
+        catch (IOException | InterruptedException e)
+        {
+            System.out.println("Why PUT failed "+e);
+        }
 
     }
 
@@ -73,6 +83,19 @@ public class methods extends link{
                 //.DELETE(HttpRequest.BodyPublishers.noBody())
                 .header("Content-Type", "application/json")
                 .build();
+        /*
+        try
+        {
+            HttpResponse<String> response = httpClientDelete.send(httpDelReq, HttpRequest.BodyPublishers.ofString());
+            System.out.println(response.statusCode());
+            System.out.println(response.body());
+        }
+        catch (IOException | InterruptedException e)
+        {
+            System.out.println("Why DELETE failed "+e);
+        }
+
+         */
 
     }
 
