@@ -29,7 +29,7 @@ public class methods extends link{
         try
         {
             HttpResponse<String> res = httpClientGet.send(httpGetReq, HttpResponse.BodyHandlers.ofString());
-
+            /*
             dataGettingBack[] data = mapper.readValue(res.body(), dataGettingBack[].class);
             for (dataGettingBack dt : data)
             {
@@ -38,7 +38,13 @@ public class methods extends link{
                 System.out.println(dt.title());
                 System.out.println(dt.completed());
             }
+             */
 
+            List<dataGettingBack> data = mapper.readValue(res.body(), new TypeReference<List<dataGettingBack>>(){});
+            for (dataGettingBack obj : data)
+            {
+                System.out.println(obj.toString());
+            }
 
         } catch (IOException | InterruptedException e)
         {
