@@ -41,7 +41,6 @@ public class methods extends link{
                 .header("Content-Type", "application/json")
                 .build();
 
-
             try
             {
             HttpResponse <String> response = httpClientPost.send(httpPostReq, HttpResponse.BodyHandlers.ofString());
@@ -52,6 +51,29 @@ public class methods extends link{
             {
                 System.out.println("Why POST failed "+e);
             }
+    }
+
+    public void putMethod()
+    {
+        this.url = "https://jsonplaceholder.typicode.com/users/";
+        HttpClient httpClientPut = HttpClient.newBuilder().connectTimeout(Duration.ofSeconds(10)).build();
+        HttpRequest httpPutReq = HttpRequest.newBuilder(URI.create(url))
+                .PUT(HttpRequest.BodyPublishers.noBody())
+                .header("Content-Type", "application/json")
+                .build();
+
+
+    }
+
+    public void deleteMethod()
+    {
+        this.url = "https://jsonplaceholder.typicode.com/users/";
+        HttpClient httpClientDelete = HttpClient.newBuilder().connectTimeout(Duration.ofSeconds(10)).build();
+        HttpRequest httpDelReq = HttpRequest.newBuilder(URI.create(url))
+                //.DELETE(HttpRequest.BodyPublishers.noBody())
+                .header("Content-Type", "application/json")
+                .build();
+
     }
 
 }
