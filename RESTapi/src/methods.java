@@ -29,9 +29,9 @@ public class methods extends link{
         {
             HttpResponse<String> res = httpClientGet.send(httpGetReq, HttpResponse.BodyHandlers.ofString());
 
-            //String valueGet = mapper.readValue(res.body(), String.class);
+            user valueGet = mapper.readValue(res.body(), user.class);
             //System.out.println(mapper.readValues(res.body(), String.class));
-            System.out.println(res.body());
+            System.out.println(valueGet);
 
         } catch (IOException | InterruptedException e)
         {

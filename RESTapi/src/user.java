@@ -1,9 +1,9 @@
 public class user
 {
-    private Integer userId;
-    private Integer id;
-    private String title;
-    private boolean completed;
+    private Integer userId = 0;
+    private Integer id = 0;
+    private String title = null;
+    private boolean completed = false;
 
     public Integer getUserId() {return userId;}
     public void setUserId(Integer userId) {}
