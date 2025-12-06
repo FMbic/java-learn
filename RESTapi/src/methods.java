@@ -9,6 +9,7 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.time.Duration;
+import java.util.List;
 
 public class methods extends link{
 
@@ -29,9 +30,15 @@ public class methods extends link{
         {
             HttpResponse<String> res = httpClientGet.send(httpGetReq, HttpResponse.BodyHandlers.ofString());
 
-            dataGettingBack valueGet = mapper.readValue(res.body(), dataGettingBack.class);
-            //System.out.println(mapper.readValues(res.body(), String.class));
-            System.out.println(valueGet);
+            dataGettingBack[] data = mapper.readValue(res.body(), dataGettingBack[].class);
+            for (dataGettingBack dt : data)
+            {
+                System.out.println(dt.id());
+                System.out.println(dt.userId());
+                System.out.println(dt.title());
+                System.out.println(dt.completed());
+            }
+
 
         } catch (IOException | InterruptedException e)
         {
