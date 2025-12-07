@@ -3,12 +3,13 @@ I want to make a script or whatever to automatically send a put request from a f
 and if there is a certan word then add a lable to a put request
  */
 
-public static void main(String[] args)
+public static void main(String[] args) throws Exception
 {
     methods methods  = new methods();
 
-    methods.getAllMethod();
-    //methods.postMethod();
+    List<dataGettingBack> getAll = methods.getAllMethod();
+
+    System.out.println(getAll);
 
 
 }

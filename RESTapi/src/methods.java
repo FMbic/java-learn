@@ -1,9 +1,7 @@
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.google.gson.Gson;
 
 import java.io.IOException;
-import java.lang.reflect.Method;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
@@ -13,11 +11,11 @@ import java.util.List;
 
 public class methods extends link{
 
-    public final ObjectMapper mapper = new ObjectMapper();
+    private final ObjectMapper mapper = new ObjectMapper();
+    private final String url = "https://jsonplaceholder.typicode.com/todos";
 
-    public void getAllMethod() {
+    public List<dataGettingBack> getAllMethod() throws IOException, InterruptedException {
 
-        this.url = "https://jsonplaceholder.typicode.com/todos";
 
         HttpClient httpClientGet = HttpClient.newBuilder().connectTimeout(Duration.ofSeconds(10)).build();
         HttpRequest httpGetReq = HttpRequest
@@ -26,38 +24,12 @@ public class methods extends link{
                 .GET()
                 .build();
 
-        try
-        {
-            HttpResponse<String> res = httpClientGet.send(httpGetReq, HttpResponse.BodyHandlers.ofString());
+        HttpResponse<String> res = httpClientGet.send(httpGetReq, HttpResponse.BodyHandlers.ofString());
 
-            dataGettingBack[] data = mapper.readValue(res.body(), dataGettingBack[].class);
-            for (dataGettingBack dt : data)
-            {
-                System.out.println(dt.id());
-                System.out.println(dt.userId());
-                System.out.println(dt.title());
-                System.out.println(dt.completed());
-            }
-
-            /*
-            List<dataGettingBack> data = mapper.readValue(res.body(), new TypeReference<List<dataGettingBack>>(){});
-            for (dataGettingBack obj : data)
-            {
-                System.out.println(obj.toString());
-            }
-
-
-             */
-        } catch (IOException | InterruptedException e)
-        {
-            System.out.println("Why GET failed "+e);
-        }
-
+        return mapper.readValue(res.body(), new TypeReference<List<dataGettingBack>>(){});
     }
 
     public void postMethod() {
-
-        this.url = "https://jsonplaceholder.typicode.com/todos";
 
         HttpClient httpClientPost = HttpClient.newBuilder().connectTimeout(Duration.ofSeconds(10)).build();
         HttpRequest httpPostReq = HttpRequest.newBuilder(URI.create(url))
@@ -79,7 +51,6 @@ public class methods extends link{
 
     public void putMethod()
     {
-        this.url = "https://jsonplaceholder.typicode.com/todos/";
         HttpClient httpClientPut = HttpClient.newBuilder().connectTimeout(Duration.ofSeconds(10)).build();
         HttpRequest httpPutReq = HttpRequest.newBuilder(URI.create(url))
                 .PUT(HttpRequest.BodyPublishers.noBody())
@@ -101,7 +72,7 @@ public class methods extends link{
 
     public void deleteMethod()
     {
-        this.url = "https://jsonplaceholder.typicode.com/todos/";
+
         HttpClient httpClientDelete = HttpClient.newBuilder().connectTimeout(Duration.ofSeconds(10)).build();
         HttpRequest httpDelReq = HttpRequest.newBuilder(URI.create(url))
                 //.DELETE(HttpRequest.BodyPublishers.noBody())
