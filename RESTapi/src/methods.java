@@ -29,6 +29,12 @@ public class methods extends link{
         return mapper.readValue(res.body(), new TypeReference<List<dataGettingBack>>(){});
     }
 
+
+
+
+
+
+
     public void postMethod() {
 
         HttpClient httpClientPost = HttpClient.newBuilder().connectTimeout(Duration.ofSeconds(10)).build();
@@ -37,16 +43,7 @@ public class methods extends link{
                 .header("Content-Type", "application/json")
                 .build();
 
-            try
-            {
-            HttpResponse <String> response = httpClientPost.send(httpPostReq, HttpResponse.BodyHandlers.ofString());
-            System.out.println(response.statusCode());
-            System.out.println(response.body());
-            }
-            catch (IOException | InterruptedException e)
-            {
-                System.out.println("Why POST failed "+e);
-            }
+
     }
 
     public void putMethod()
@@ -57,16 +54,7 @@ public class methods extends link{
                 .header("Content-Type", "application/json")
                 .build();
 
-        try
-        {
-            HttpResponse <String> response = httpClientPut.send(httpPutReq, HttpResponse.BodyHandlers.ofString());
-            System.out.println(response.statusCode());
-            System.out.println(response.body());
-        }
-        catch (IOException | InterruptedException e)
-        {
-            System.out.println("Why PUT failed "+e);
-        }
+
 
     }
 
@@ -78,19 +66,7 @@ public class methods extends link{
                 //.DELETE(HttpRequest.BodyPublishers.noBody())
                 .header("Content-Type", "application/json")
                 .build();
-        /*
-        try
-        {
-            HttpResponse<String> response = httpClientDelete.send(httpDelReq, HttpRequest.BodyPublishers.ofString());
-            System.out.println(response.statusCode());
-            System.out.println(response.body());
-        }
-        catch (IOException | InterruptedException e)
-        {
-            System.out.println("Why DELETE failed "+e);
-        }
 
-         */
 
     }
 
