@@ -8,8 +8,10 @@ public static void main(String[] args) throws Exception
     methods methods  = new methods();
 
     List<dataGettingBack> getAll = methods.getAllMethod();
+    List<dataGettingBack> one = methods.getOne(900);
 
-    System.out.println(getAll);
+    //System.out.println(one);
+
 
 }
 

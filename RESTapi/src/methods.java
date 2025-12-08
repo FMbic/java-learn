@@ -1,11 +1,14 @@
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
+
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.time.Duration;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -13,6 +16,7 @@ public class methods extends link{
 
     private final ObjectMapper mapper = new ObjectMapper();
     private final String url = "https://jsonplaceholder.typicode.com/todos";
+    private Object Exceptions;
 
     public List<dataGettingBack> getAllMethod() throws IOException, InterruptedException {
 
@@ -38,7 +42,10 @@ public class methods extends link{
 
         HttpResponse<String> responce = httpGetOne.send(httpOne, HttpResponse.BodyHandlers.ofString());
 
-        return "working on it";
+        if (responce.statusCode() == 404) { System.out.println(responce.statusCode()); }
+
+
+        return Collections.singletonList(mapper.readValue(responce.body(), dataGettingBack.class));
     }
 
 
