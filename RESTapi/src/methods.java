@@ -16,7 +16,7 @@ public class methods extends link{
 
     private final ObjectMapper mapper = new ObjectMapper();
     private final String url = "https://jsonplaceholder.typicode.com/todos";
-    private Object Exceptions;
+
 
     public List<dataGettingBack> getAllMethod() throws IOException, InterruptedException {
 
@@ -32,7 +32,7 @@ public class methods extends link{
         return mapper.readValue(res.body(), new TypeReference<List<dataGettingBack>>(){});
     }
 
-    public List<dataGettingBack> getOne(int id) throws IOException, InterruptedException {
+    public List<dataGettingBack> getOne(int id) throws IOException, InterruptedException, error {
         HttpClient httpGetOne = HttpClient.newBuilder().connectTimeout(Duration.ofSeconds(10)).build();
         HttpRequest httpOne = HttpRequest
                 .newBuilder(URI.create(url + "/"+ id))
@@ -42,7 +42,7 @@ public class methods extends link{
 
         HttpResponse<String> responce = httpGetOne.send(httpOne, HttpResponse.BodyHandlers.ofString());
 
-        if (responce.statusCode() == 404) { System.out.println(responce.statusCode()); }
+        if (responce.statusCode() == 404) { throw new error("Not found "+ responce.statusCode()); }
 
 
         return Collections.singletonList(mapper.readValue(responce.body(), dataGettingBack.class));
