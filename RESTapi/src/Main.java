@@ -10,8 +10,7 @@ public static void main(String[] args) throws Exception, error
     List<dataGettingBack> getAll = methods.getAllMethod();
     List<dataGettingBack> one = methods.getOne(10);
 
-    System.out.println(one);
 
-
+    System.out.println();
 }
 

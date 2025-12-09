@@ -2,6 +2,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
 
+import javax.xml.crypto.dsig.keyinfo.KeyValue;
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -16,7 +17,7 @@ public class methods extends link{
 
     private final ObjectMapper mapper = new ObjectMapper();
     private final String url = "https://jsonplaceholder.typicode.com/todos";
-
+    private final String name = "Test";
 
     public List<dataGettingBack> getAllMethod() throws IOException, InterruptedException {
 
@@ -53,11 +54,12 @@ public class methods extends link{
         HttpClient httpClientPut = HttpClient.newBuilder().connectTimeout(Duration.ofSeconds(10)).build();
         HttpRequest httpPutReq = HttpRequest
                 .newBuilder(URI.create(url+ "/" +id))
-                .PUT(HttpRequest.BodyPublishers.ofString(url))
+                .PUT(HttpRequest.BodyPublishers.ofString("%1$s"))
                 .header("Content-Type", "application/json")
                 .build();
 
         HttpResponse<String> response = httpClientPut.send(httpPutReq, HttpResponse.BodyHandlers.ofString());
+
 
     }
 
