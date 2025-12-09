@@ -48,39 +48,40 @@ public class methods extends link{
         return Collections.singletonList(mapper.readValue(responce.body(), dataGettingBack.class));
     }
 
+    public void putMethod(int id) throws IOException, InterruptedException, error
+    {
+        HttpClient httpClientPut = HttpClient.newBuilder().connectTimeout(Duration.ofSeconds(10)).build();
+        HttpRequest httpPutReq = HttpRequest
+                .newBuilder(URI.create(url+ "/" +id))
+                .PUT(HttpRequest.BodyPublishers.ofString(url))
+                .header("Content-Type", "application/json")
+                .build();
 
+        HttpResponse<String> response = httpClientPut.send(httpPutReq, HttpResponse.BodyHandlers.ofString());
 
-
+    }
 
     public void postMethod() {
 
         HttpClient httpClientPost = HttpClient.newBuilder().connectTimeout(Duration.ofSeconds(10)).build();
-        HttpRequest httpPostReq = HttpRequest.newBuilder(URI.create(url))
-                .POST(HttpRequest.BodyPublishers.noBody())
+        HttpRequest httpPostReq = HttpRequest
+                .newBuilder(URI.create(url))
+                //.POST()
                 .header("Content-Type", "application/json")
                 .build();
 
 
     }
 
-    public void putMethod()
-    {
-        HttpClient httpClientPut = HttpClient.newBuilder().connectTimeout(Duration.ofSeconds(10)).build();
-        HttpRequest httpPutReq = HttpRequest.newBuilder(URI.create(url))
-                .PUT(HttpRequest.BodyPublishers.noBody())
-                .header("Content-Type", "application/json")
-                .build();
 
 
-
-    }
-
-    public void deleteMethod()
+    public void deleteMethod(int id)
     {
 
         HttpClient httpClientDelete = HttpClient.newBuilder().connectTimeout(Duration.ofSeconds(10)).build();
-        HttpRequest httpDelReq = HttpRequest.newBuilder(URI.create(url))
-                //.DELETE(HttpRequest.BodyPublishers.noBody())
+        HttpRequest httpDelReq = HttpRequest
+                .newBuilder(URI.create(url))
+                .DELETE()
                 .header("Content-Type", "application/json")
                 .build();
 
