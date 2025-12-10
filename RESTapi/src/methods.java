@@ -51,17 +51,19 @@ public class methods extends link{
 
     public String putMethod(int id) throws IOException, InterruptedException, error
     {
+        dataGettingBack body = new dataGettingBack(3, 1,"test-test",true);
+        String jsonBody = mapper.writeValueAsString(body);
         HttpClient httpClientPut = HttpClient.newBuilder().connectTimeout(Duration.ofSeconds(10)).build();
         HttpRequest httpPutReq = HttpRequest
                 .newBuilder(URI.create(url+ "/" +id))
-                .PUT(HttpRequest.BodyPublishers.ofString(""))
+                .PUT(HttpRequest.BodyPublishers.ofString(jsonBody))
                 .header("Content-Type", "application/json")
                 .build();
 
         HttpResponse<String> response = httpClientPut.send(httpPutReq, HttpResponse.BodyHandlers.ofString());
-        dataGettingBack body = new dataGettingBack(3, 1,"test-test",true);
 
-        return gson.toJson(body);
+
+        return response.body();
     }
 
     public void postMethod() {
