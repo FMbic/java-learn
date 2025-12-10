@@ -1,3 +1,4 @@
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
@@ -17,10 +18,8 @@ public class methods extends link{
 
     private final ObjectMapper mapper = new ObjectMapper();
     private final String url = "https://jsonplaceholder.typicode.com/todos";
-    Gson gson = new Gson();
 
     public List<dataGettingBack> getAllMethod() throws IOException, InterruptedException {
-
 
         HttpClient httpClientGet = HttpClient.newBuilder().connectTimeout(Duration.ofSeconds(10)).build();
         HttpRequest httpGetReq = HttpRequest
@@ -42,10 +41,7 @@ public class methods extends link{
                 .build();
 
         HttpResponse<String> responce = httpGetOne.send(httpOne, HttpResponse.BodyHandlers.ofString());
-
         if (responce.statusCode() == 404) { throw new error("Not found "+ responce.statusCode()); }
-
-
         return Collections.singletonList(mapper.readValue(responce.body(), dataGettingBack.class));
     }
 
@@ -61,23 +57,24 @@ public class methods extends link{
                 .build();
 
         HttpResponse<String> response = httpClientPut.send(httpPutReq, HttpResponse.BodyHandlers.ofString());
-
-
         return response.body();
     }
 
-    public void postMethod() {
+    public String postMethod() throws IOException, InterruptedException, error {
+
+        dataGettingBack body = new dataGettingBack(3,null ,"randomBook",true);
+        String jsonBody = mapper.writeValueAsString(body);
 
         HttpClient httpClientPost = HttpClient.newBuilder().connectTimeout(Duration.ofSeconds(10)).build();
         HttpRequest httpPostReq = HttpRequest
-                .newBuilder(URI.create(url))
-                //.POST()
+                .newBuilder(URI.create(url+"/"))
+                .POST(HttpRequest.BodyPublishers.ofString(jsonBody))
                 .header("Content-Type", "application/json")
                 .build();
 
-
+        HttpResponse<String> response = httpClientPost.send(httpPostReq, HttpResponse.BodyHandlers.ofString());
+        return response.body();
     }
-
 
 
     public String deleteMethod(int id) throws IOException, InterruptedException, error
@@ -91,8 +88,13 @@ public class methods extends link{
                 .build();
 
         HttpResponse<String> response = httpClientDelete.send(httpDelReq, HttpResponse.BodyHandlers.ofString());
-
         return response.statusCode() + response.body();
     }
 
+    public String patchMethod(int id) throws IOException, InterruptedException, error
+    {
+
+
+        return "hello";
+    }
 }
