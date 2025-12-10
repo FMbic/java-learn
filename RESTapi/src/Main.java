@@ -11,7 +11,9 @@ public static void main(String[] args) throws Exception, error
     //List<dataGettingBack> one = methods.getOne(10);
 
     //methods.putMethod(1);
-    System.out.println(methods.putMethod(1));
-    System.out.println(methods.getOne(1));
+
+    System.out.println("Put \n"+methods.putMethod(1));
+    System.out.println("Get one \n"+methods.getOne(1));
+    System.out.println("Delete \n"+methods.deleteMethod(3));
 }
 

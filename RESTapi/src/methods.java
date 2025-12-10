@@ -80,17 +80,19 @@ public class methods extends link{
 
 
 
-    public void deleteMethod(int id)
+    public String deleteMethod(int id) throws IOException, InterruptedException, error
     {
 
         HttpClient httpClientDelete = HttpClient.newBuilder().connectTimeout(Duration.ofSeconds(10)).build();
         HttpRequest httpDelReq = HttpRequest
-                .newBuilder(URI.create(url))
+                .newBuilder(URI.create(url+"/"+id))
                 .DELETE()
                 .header("Content-Type", "application/json")
                 .build();
 
+        HttpResponse<String> response = httpClientDelete.send(httpDelReq, HttpResponse.BodyHandlers.ofString());
 
+        return response.statusCode() + response.body();
     }
 
 }
