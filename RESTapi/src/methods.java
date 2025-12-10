@@ -28,8 +28,8 @@ public class methods extends link{
                 .GET()
                 .build();
 
-        HttpResponse<String> res = httpClientGet.send(httpGetReq, HttpResponse.BodyHandlers.ofString());
-        return mapper.readValue(res.body(), new TypeReference<List<dataGettingBack>>(){});
+        HttpResponse<String> response = httpClientGet.send(httpGetReq, HttpResponse.BodyHandlers.ofString());
+        return mapper.readValue(response.body(), new TypeReference<List<dataGettingBack>>(){});
     }
 
     public List<dataGettingBack> getOne(int id) throws IOException, InterruptedException, error {
@@ -40,9 +40,9 @@ public class methods extends link{
                 .GET()
                 .build();
 
-        HttpResponse<String> responce = httpGetOne.send(httpOne, HttpResponse.BodyHandlers.ofString());
-        if (responce.statusCode() == 404) { throw new error("Not found "+ responce.statusCode()); }
-        return Collections.singletonList(mapper.readValue(responce.body(), dataGettingBack.class));
+        HttpResponse<String> response = httpGetOne.send(httpOne, HttpResponse.BodyHandlers.ofString());
+        if (response.statusCode() == 404) { throw new error("Not found "+ response.statusCode()); }
+        return Collections.singletonList(mapper.readValue(response.body(), dataGettingBack.class));
     }
 
     public String putMethod(int id) throws IOException, InterruptedException, error
@@ -57,7 +57,7 @@ public class methods extends link{
                 .build();
 
         HttpResponse<String> response = httpClientPut.send(httpPutReq, HttpResponse.BodyHandlers.ofString());
-        return response.body();
+        return response.statusCode()+ "\n"+ response.body();
     }
 
     public String postMethod() throws IOException, InterruptedException, error {
@@ -73,7 +73,7 @@ public class methods extends link{
                 .build();
 
         HttpResponse<String> response = httpClientPost.send(httpPostReq, HttpResponse.BodyHandlers.ofString());
-        return response.body();
+        return response.statusCode()+ "\n" +response.body();
     }
 
 
@@ -88,7 +88,7 @@ public class methods extends link{
                 .build();
 
         HttpResponse<String> response = httpClientDelete.send(httpDelReq, HttpResponse.BodyHandlers.ofString());
-        return response.statusCode() + response.body();
+        return response.statusCode() +"\n"+ response.body();
     }
 
     public String patchMethod(int id) throws IOException, InterruptedException, error
@@ -105,6 +105,6 @@ public class methods extends link{
                 .build();
 
         HttpResponse<String> response = httpClientPatch.send(httpPatchreq, HttpResponse.BodyHandlers.ofString());
-        return response.body() + "\n" + response.statusCode();
+        return response.statusCode() + "\n" + response.body();
     }
 }
