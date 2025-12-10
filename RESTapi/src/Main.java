@@ -15,6 +15,7 @@ public static void main(String[] args) throws Exception, error
     //System.out.println("Put \n"+methods.putMethod(1));
     //System.out.println("Get one \n"+methods.getOne(1));
     //System.out.println("Delete \n"+methods.deleteMethod(3));
-    System.out.println("POST \n"+methods.postMethod());
+    //System.out.println("POST \n"+methods.postMethod());
+    System.out.println("PATCH \n"+ methods.patchMethod(1));
 }
 

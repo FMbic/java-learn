@@ -93,8 +93,18 @@ public class methods extends link{
 
     public String patchMethod(int id) throws IOException, InterruptedException, error
     {
+        dataGettingBack body = new dataGettingBack(1, 1,"switching-from test",false);
+        String jsonBody = mapper.writeValueAsString(body);
 
+        HttpClient httpClientPatch = HttpClient.newBuilder().connectTimeout(Duration.ofSeconds(10)).build();
+        HttpRequest httpPatchreq = HttpRequest
+                .newBuilder()
+                .uri(URI.create(url+"/"+id))
+                .method("PATCH", HttpRequest.BodyPublishers.ofString(jsonBody))
+                .header("Content-Type","application/json")
+                .build();
 
-        return "hello";
+        HttpResponse<String> response = httpClientPatch.send(httpPatchreq, HttpResponse.BodyHandlers.ofString());
+        return response.body() + "\n" + response.statusCode();
     }
 }
