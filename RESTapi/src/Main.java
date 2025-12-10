@@ -7,10 +7,11 @@ public static void main(String[] args) throws Exception, error
 {
     methods methods  = new methods();
 
-    List<dataGettingBack> getAll = methods.getAllMethod();
-    List<dataGettingBack> one = methods.getOne(10);
+    //List<dataGettingBack> getAll = methods.getAllMethod();
+    //List<dataGettingBack> one = methods.getOne(10);
 
-
-    System.out.println();
+    //methods.putMethod(1);
+    System.out.println(methods.putMethod(1));
+    System.out.println(methods.getOne(1));
 }
 

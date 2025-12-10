@@ -1,7 +1,7 @@
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
-
+import com.google.gson.Gson;
 import javax.xml.crypto.dsig.keyinfo.KeyValue;
 import java.io.IOException;
 import java.net.URI;
@@ -17,7 +17,7 @@ public class methods extends link{
 
     private final ObjectMapper mapper = new ObjectMapper();
     private final String url = "https://jsonplaceholder.typicode.com/todos";
-    private final String name = "Test";
+    Gson gson = new Gson();
 
     public List<dataGettingBack> getAllMethod() throws IOException, InterruptedException {
 
@@ -49,18 +49,19 @@ public class methods extends link{
         return Collections.singletonList(mapper.readValue(responce.body(), dataGettingBack.class));
     }
 
-    public void putMethod(int id) throws IOException, InterruptedException, error
+    public String putMethod(int id) throws IOException, InterruptedException, error
     {
         HttpClient httpClientPut = HttpClient.newBuilder().connectTimeout(Duration.ofSeconds(10)).build();
         HttpRequest httpPutReq = HttpRequest
                 .newBuilder(URI.create(url+ "/" +id))
-                .PUT(HttpRequest.BodyPublishers.ofString("%1$s"))
+                .PUT(HttpRequest.BodyPublishers.ofString(""))
                 .header("Content-Type", "application/json")
                 .build();
 
         HttpResponse<String> response = httpClientPut.send(httpPutReq, HttpResponse.BodyHandlers.ofString());
+        dataGettingBack body = new dataGettingBack(3, 1,"test-test",true);
 
-
+        return gson.toJson(body);
     }
 
     public void postMethod() {
